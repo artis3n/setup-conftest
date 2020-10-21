@@ -36,4 +36,9 @@ jobs:
         uses: ./
 
       - name: Expect conftest to exist now
-        run: conftest --help
+        id: conftest
+        run: conftest --version
+
+      - name: Ensure conftest outputs work as expected
+        run: |
+          [[ ${{ steps.conftest.outputs.exitcode }} -eq 0 ]]
