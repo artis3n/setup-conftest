@@ -19,14 +19,14 @@ The default configuration installs the latest version of Conftest and installs t
 
 ```yaml
 steps:
-  - uses: artis3n/setup-conftest@v1
+  - uses: artis3n/setup-conftest@v0
 ```
 
 A specific version of Conftest can be installed:
 
 ```yaml
 steps:
-  - uses: artis3n/setup-conftest@v1
+  - uses: artis3n/setup-conftest@v0
     with:
       conftest_version: 0.21.0
 ```
@@ -35,7 +35,7 @@ The wrapper script installation can be skipped:
 
 ```yaml
 steps:
-  - uses: artis3n/setup-conftest@v1
+  - uses: artis3n/setup-conftest@v0
     with:
       conftest_wrapper: false
 ```
@@ -44,7 +44,7 @@ Subsequent steps can access outputs when the wrapper script is installed:
 
 ```yaml
 steps:
-  - uses: artis3n/setup-conftest@v1
+  - uses: artis3n/setup-conftest@v0
 
   - id: verify
     run: conftest verify ./
