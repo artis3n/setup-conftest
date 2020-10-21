@@ -2,7 +2,7 @@
 
 The `artis3n/setup-conftest` action is a JavaScript action that sets up [Conftest](https://conftest.dev) in your GitHub Actions workflow by:
 - Downloading a specific version of Conftest and adding it to the `PATH`
-- Installing a wrapper script to wrap subsequent calls of the `conftest` binary and expose its STDOUT, STDERR, and exit code as outputs named `stdout`, `stderr`, and `exitcode` respectively (This can be optionally skipped if subsequent steps in the same job do not need to access the results of Terraform commands)
+- Installing a wrapper script to wrap subsequent calls of the `conftest` binary and expose its STDOUT, STDERR, and exit code as outputs named `stdout`, `stderr`, and `exitcode` respectively (This can be optionally skipped if subsequent steps in the same job do not need to access the results of Conftest commands)
 
 After you've used the action, subsequent steps in the same job can run arbitrary Conftest commands using [the GitHub Actions `run` syntax](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 This allows most Conftest commands to work exactly like they do on your local command line.
@@ -67,7 +67,7 @@ Must be a valid semver string matching [Conftest's Releases](https://github.com/
 The special value of `latest` installs the latest version of Conftest.
 Defaults to `latest`.
 
-#### `terraform_wrapper`
+#### `conftest_wrapper`
 
 (Optional)
 
