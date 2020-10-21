@@ -1,0 +1,18 @@
+name: 'Setup Conftest'
+description: 'Sets up Conftest executable in your GitHub Actions workflow.'
+author: 'Ari Kalfus (@artis3n)'
+inputs:
+  conftest_version:
+    description: 'The version of Conftest to install. A value of `latest` will install the latest version of Conftest. Defaults to `latest`.'
+    default: 'latest'
+    required: false
+  conftest_wrapper:
+    description: 'Whether to install a wrapper to wrap subsequent calls of the `conftest` binary and expose its STDOUT, STDERR, and exit code as outputs named `stdout`, `stderr`, and `exitcode`, respectively. Defaults to `true`.'
+    default: 'true'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'alert-circle'
+  color: 'orange'
