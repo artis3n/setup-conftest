@@ -8,3 +8,13 @@ updates:
     schedule:
       # Check for updates to GitHub Actions every weekday
       interval: "daily"
+  
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  
+  - package-ecosystem: "npm"
+    directory: "/wrapper"
+    schedule:
+      interval: "daily"
