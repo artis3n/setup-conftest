@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14
+      - name: Use Node.js 12
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 12
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -26,10 +26,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use NodeJS 14
+      - name: Use NodeJS 12
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 12
 
       - name: Test self
         id: selftest
