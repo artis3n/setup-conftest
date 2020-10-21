@@ -1,0 +1,55 @@
+{
+  "name": "setup-conftest",
+  "version": "1.0.0",
+  "description": "Setup Conftest for GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd wrapper && npm test && cd .. && semistandard --env jest && jest --coverage",
+    "lint": "cd wrapper && npm run lint && cd .. && semistandard --env jest --fix",
+    "build": "cd wrapper && npm run build && cd .. && ncc build index.js --out dist",
+    "postinstall": "cd wrapper && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artis3n/setup-conftest.git"
+  },
+  "author": "Ari Kalfus (@artis3n)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/artis3n/setup-conftest/issues"
+  },
+  "homepage": "https://github.com/artis3n/setup-conftest#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@actions/io": "^1.0.2",
+    "@actions/tool-cache": "^1.6.0",
+    "axios": "^0.20.0",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "husky": "^4.3.0",
+    "jest": "^26.6.0",
+    "nock": "^13.0.4",
+    "semistandard": "^14.2.3"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/wrapper/"
+    ]
+  },
+  "semistandard": {
+    "ignore": [
+      "dist/**",
+      "wrapper/**"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && git add dist/"
+    }
+  }
+}

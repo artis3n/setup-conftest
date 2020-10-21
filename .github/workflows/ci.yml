@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test self
+        id: selftest
+        uses: ./
+
+      - name: Expect conftest to exist now
+        id: conftest
+        run: conftest --version
+
+      - name: Ensure conftest outputs work as expected
+        run: |
+          [[ ${{ steps.conftest.outputs.exitcode }} -eq 0 ]]
