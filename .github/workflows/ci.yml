@@ -1,0 +1,39 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use NodeJS 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Test self
+        id: selftest
+        uses: ./
+
+      - name: Expect conftest to exist now
+        run: conftest --help
