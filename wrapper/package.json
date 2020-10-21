@@ -1,0 +1,28 @@
+{
+  "name": "conftest.js",
+  "version": "1.0.0",
+  "description": "JavaScript wrapper for conftest binary",
+  "main": "conftest.js",
+  "scripts": {
+    "test": "semistandard --env jest && jest --coverage",
+    "lint": "semistandard --env jest --fix",
+    "build": "ncc build conftest.js --out dist"
+  },
+  "author": "Ari Kalfus (@artis3n)",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/io": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "jest": "^26.6.0",
+    "semistandard": "^14.2.3"
+  },
+  "semistandard": {
+    "ignore": [
+      "dist/**"
+    ]
+  }
+}
