@@ -26,10 +26,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use NodeJS 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
 
       - name: Test self
         id: selftest
