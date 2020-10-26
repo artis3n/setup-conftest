@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.24.1",
-    "jest": "^26.6.0",
+    "jest": "^26.6.1",
     "semistandard": "^14.2.3"
   },
   "semistandard": {
