@@ -32,7 +32,7 @@
     "husky": "^4.3.0",
     "jest": "^26.6.1",
     "nock": "^13.0.4",
-    "semistandard": "^14.2.3"
+    "semistandard": "^15.0.0"
   },
   "jest": {
     "testPathIgnorePatterns": [
