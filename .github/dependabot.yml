@@ -12,9 +12,9 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   
   - package-ecosystem: "npm"
     directory: "/wrapper"
     schedule:
-      interval: "daily"
+      interval: "monthly"
